@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "RizzUp",
+    "slug": "RizzUp",
+    "version": "1.0.0",
+    "scheme": "rizz-up",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.rizzup.blank"
+    }
+  }
+}
