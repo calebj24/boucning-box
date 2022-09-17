@@ -10,6 +10,9 @@
     ],
     "ios": {
       "bundleIdentifier": "com.rizzup.blank"
+    },
+    "android": {
+      "package": "com.rizzup.blank"
     }
   }
 }

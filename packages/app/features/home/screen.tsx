@@ -18,15 +18,11 @@ export function HomeScreen() {
   const [text, setText] = useState("")
 
   useEffect(() => {
-    const header = {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': '*',
-      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,WHATEVERELSEYOUUSE'
-    }
+    
 
     let url = "https://getpickuplines.herokuapp.com/lines/random"
     Platform.OS === "web" ? url = "https://cors-anywhere.herokuapp.com/" + url : null;
-    axios.get(url, header)
+    axios.get(url)
       .then((response) => {
         setText(response.data.line)
       })
@@ -39,7 +35,7 @@ export function HomeScreen() {
       url = "https://getpickuplines.herokuapp.com/lines/random" :
       url = "https://complimentr.com/api";
     Platform.OS === "web" ? url = "https://cors-anywhere.herokuapp.com/" + url : null;
-    axios.get(url, header).then((response) => {
+    axios.get(url).then((response) => {
       if (response.data.compliment) {
         setText(response.data.compliment)
         return;
