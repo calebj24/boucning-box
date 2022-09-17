@@ -19,6 +19,9 @@ const nextConfig = {
   // once that gets fixed, set this back to true
   reactStrictMode: false,
   webpack5: true,
+  experimental: { 
+    nftTracing: true 
+  }
 }
 
 const transform = withPlugins([withTM, withFonts, withImages, withExpo])
