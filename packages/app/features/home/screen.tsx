@@ -6,12 +6,7 @@ import { MotiView, MotiText } from 'moti'
 import { useEffect, useState, useMemo } from 'react'
 import { Button, Platform } from 'react-native'
 import axios from 'axios';
-
-const header = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Credentials': '*',
-  'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-}
+import RizzList from '../../components/RizzList'
 
 export function HomeScreen() {
   const sx = useSx()
@@ -58,10 +53,10 @@ export function HomeScreen() {
           repeatReverse: false,
         }}
       >
-        <H1 sx={{ fontWeight: '800' }}>RizzUp</H1>
+        <H1 sx={{ fontWeight: '800', color: "white" }}>RizzUp</H1>
       </MotiView>
       <View sx={{ maxWidth: 600 }}>
-        <P sx={{ textAlign: 'center' }}>
+        <P sx={{ textAlign: 'center', color: "white" }}>
           {text}
         </P>
         {/* <View sx={{ textAlign: 'center', fontSize: 16, fontWeight: 'bold', color: 'blue' }}> */}
@@ -80,7 +75,7 @@ export function HomeScreen() {
           onPress={randomRizz} containerStyle={{ justifyContent: 'center', alignItems: "center" }} >
           <Text
             selectable={false}
-            sx={{ fontSize: 16, color: 'black', fontWeight: 'bold' }}
+            sx={{ fontSize: 16, color: 'white', fontWeight: 'bold' }}
           >
             Random Rizz
           </Text>
@@ -88,6 +83,7 @@ export function HomeScreen() {
         {/* </View> */}
       </View>
       <View sx={{ height: 32 }} />
+      <RizzList />
       <Row>
 
       </Row>

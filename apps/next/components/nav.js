@@ -12,6 +12,7 @@ const nav = () => {
   return (
     <div>
       <nav className="nav">
+      <NavItems title="RizzUp"/>
         <div className="icons">
           <NavItems title="HOME" Icon={HomeIcon} />
           <NavItems title="SEARCH" Icon={SearchIcon} />

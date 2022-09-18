@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
+    "@freakycoder/react-native-bounceable": "^1.0.3",
+    "@paraboly/react-native-card": "Paraboly/react-native-card",
     "@react-navigation/bottom-tabs": "^6.4.0",
     "axios": "^0.27.2",
     "react": "18.0.0",

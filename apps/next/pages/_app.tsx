@@ -20,7 +20,7 @@ import { UserContext } from '../lib/UserContext';
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: SolitoAppProps) {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({name: "example"});
 
   return (
     <>
