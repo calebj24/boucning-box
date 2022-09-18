@@ -7,13 +7,14 @@ import { useEffect, useState, useMemo } from 'react'
 import { Button, Platform } from 'react-native'
 import axios from 'axios';
 import RizzList from '../../components/RizzList'
+import { FloatingAction } from "react-native-floating-action";
 
 export function HomeScreen() {
   const sx = useSx()
   const [text, setText] = useState("")
 
   useEffect(() => {
-    
+
 
     let url = "https://getpickuplines.herokuapp.com/lines/random"
     Platform.OS === "web" ? url = "https://corsmirror.onrender.com/v1/cors?url=" + url : null;
@@ -42,7 +43,7 @@ export function HomeScreen() {
 
   return (
     <View
-      sx={{ flex: 1, justifyContent: 'center', alignItems: 'center', p: 16 }}
+      sx={{ flex: 1, justifyContent: 'center', alignItems: 'center', p: 16, backgroundColor: "#5634CB" }}
     >
       <MotiView
         from={{ opacity: 0 }}
@@ -82,10 +83,16 @@ export function HomeScreen() {
         </MotiPressable>
         {/* </View> */}
       </View>
-      <View sx={{ height: 32 }} />
-      <RizzList />
+      <View sx={{ height: 32, position: 'absolute',
+    bottom:0,
+    left:0, }} />
+        {Platform.OS !== "web" ? <FloatingAction
+          overlayColor={"transparent"}
+          onPressMain={() => {
+            console.log(`selected button`);
+          }}
+        /> : null}
       <Row>
-
       </Row>
     </View>
   )
