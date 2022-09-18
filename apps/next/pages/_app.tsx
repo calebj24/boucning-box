@@ -11,12 +11,17 @@ const fixReanimatedIssue = () => {
 
 fixReanimatedIssue()
 
-import { Provider } from 'app/provider'
-import Head from 'next/head'
-import React from 'react'
-import type { SolitoAppProps } from 'solito'
+import { Provider } from 'app/provider';
+import Head from 'next/head';
+import React, {useState} from 'react';
+import type { SolitoAppProps } from 'solito';
+import Layout from '../components/layout';
+import { UserContext } from '../lib/UserContext';
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: SolitoAppProps) {
+  const [user, setUser] = useState();
+
   return (
     <>
       <Head>
@@ -28,7 +33,11 @@ function MyApp({ Component, pageProps }: SolitoAppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Provider>
-        <Component {...pageProps} />
+      <UserContext.Provider value={[user, setUser]}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+        </UserContext.Provider>
       </Provider>
     </>
   )

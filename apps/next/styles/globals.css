@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "https://fonts.googleapis.com/css2?family=Gaegu&display=swap";
+
+* {
+  background-color: #5634CB;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.icons {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-evenly;
+  max-width: 672px;
+}
+
+.logo {
+  object-fit: contain;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  width: 48px;
+  color: lightgray;
+  /* margin-right: 50px; */
+}
+
+.group:hover {
+  color: #fff;
+}
+
+.icon {
+  height: 32px;
+}
+
+.group:hover .icon {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.icon-title {
+  opacity: 0;
+  letter-spacing: 0.1em;
+}
+
+.group:hover .icon-title {
+  opacity: 1;
+  z-index: 1;
+}
+
+@media (min-width: 640px) {
+  .nav {
+    flex-direction: row;
+  }
+
+  .group {
+    width: 80px;
+  }
+}

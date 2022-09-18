@@ -10,16 +10,25 @@
   },
   "dependencies": {
     "@expo/next-adapter": "^4.0.12",
+    "@heroicons/react": "v1",
+    "@magic-ext/oauth": "^3.0.0",
     "app": "*",
+    "autoprefixer": "^10.4.11",
+    "magic-sdk": "^9.0.0",
     "next": "^12.2.5",
-    "raf": "^3.4.1"
+    "raf": "^3.4.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
     "@types/node": "17.0.21",
+    "babel-plugin-postcss": "1.1.0",
     "eslint-config-next": "12.2.5",
     "next-compose-plugins": "^2.2.1",
     "next-fonts": "^1.5.1",
     "next-images": "^1.8.4",
-    "next-transpile-modules": "^9.0.0"
+    "next-transpile-modules": "^9.0.0",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8"
   }
 }
