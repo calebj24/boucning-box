@@ -16,7 +16,7 @@ export function HomeScreen() {
     
 
     let url = "https://getpickuplines.herokuapp.com/lines/random"
-    Platform.OS === "web" ? url = "https://cors-anywhere.herokuapp.com/" + url : null;
+    Platform.OS === "web" ? url = "https://corsmirror.onrender.com/v1/cors?url=" + url : null;
     axios.get(url)
       .then((response) => {
         setText(response.data.line)
@@ -29,7 +29,7 @@ export function HomeScreen() {
     random > 5 ?
       url = "https://getpickuplines.herokuapp.com/lines/random" :
       url = "https://complimentr.com/api";
-    Platform.OS === "web" ? url = "https://cors-anywhere.herokuapp.com/" + url : null;
+    Platform.OS === "web" ? url = "https://corsmirror.onrender.com/v1/cors?url=" + url : null;
     axios.get(url).then((response) => {
       if (response.data.compliment) {
         setText(response.data.compliment)
