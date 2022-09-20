@@ -1,6 +1,5 @@
 import { Magic } from 'magic-sdk';
 import { OAuthExtension } from '@magic-ext/oauth';
-import { ConnectExtension } from "@magic-ext/connect";
 
 const customNodeOptions = {
   rpcUrl: 'https://rpc-mainnet.maticvigil.com/',
@@ -12,13 +11,13 @@ const createMagic = (key) => {
   return (
     typeof window != 'undefined' &&
     new Magic(key, {
-      locale: "en_US",
-      network: customNodeOptions,
-      extensions: [new ConnectExtension()]
+        network: "rinkeby",
+        locale: "en_US",
+        extensions: [new ConnectExtension()]
     })
   );
 };
 
 
 
-export const magic = createMagic(process.env.NEXT_PUBLIC_MAGIC_PUBLISHABLE_KEY);
+export const magic = createMagic("pk_live_73AAE8A5F81B1CF3");

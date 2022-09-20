@@ -4,6 +4,13 @@ import { Hoverable } from 'react-native-web-hooks';
 import { useHover, useFocus, useActive } from 'react-native-web-hooks';
 import { Row } from 'dripsy';
 import { AntDesign } from "@expo/vector-icons";
+import MagicModal from '../../components/magicModal'
+import Web3 from "web3";
+import { ConnectExtension } from "@magic-ext/connect";
+import {magic} from "../../../../apps/next/lib/magic"
+
+
+  const web3 = new Web3(magic.rpcProvider);
 
 const createLogger = (...msg) => () => {
     console.log(...msg);
@@ -11,14 +18,26 @@ const createLogger = (...msg) => () => {
 
 export default function App() {
     const ref = useRef(null);
+    const [account, setAccount]: any = useState(null);
     const [width, setWindowWidth] = useState(Dimensions.get('window').width)
+
+    const login = async () => {
+        web3.eth
+          .getAccounts()
+          .then((accounts) => {
+            setAccount(accounts?.[0]);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      };
 
     return (
         width > 700 ? 
         <View style={{ justifyContent: "center", alignItems: "center" }}>
             <Hoverable>
                 {isHovered => (
-                    <Pressable accessible style={[styles.button, { backgroundColor: isHovered ? 'yellow' : 'transparent' }]}>
+                    <Pressable onPress={login} accessible style={[styles.button, { backgroundColor: isHovered ? 'yellow' : 'transparent' }]}>
                         <Row sx={{alignItems: "baseline"}}>
                             <AntDesign name="mail" size={24} color={isHovered ? 'black' : 'lightgreen'} />
                             <View style={{paddingRight: 10}} />
@@ -39,6 +58,7 @@ export default function App() {
                     </Pressable>
                 )}
             </Hoverable>
+            <MagicModal login={login} account={account} setAccount={setAccount}/>
         </View> : null
     );
 }
