@@ -8,7 +8,7 @@ import MagicModal from '../../components/magicModal'
 import Web3 from "web3";
 import { ConnectExtension } from "@magic-ext/connect";
 import {magic} from "../../../../apps/next/lib/magic"
-
+import Modal from "react-native-modal";
 
   const web3 = new Web3(magic.rpcProvider);
 
@@ -34,6 +34,7 @@ export default function App() {
 
     return (
         width > 700 ? 
+        <Modal style={{backgroundColor: '#5634CB'}} isVisible={true}>
         <View style={{ justifyContent: "center", alignItems: "center" }}>
             <Hoverable>
                 {isHovered => (
@@ -59,7 +60,9 @@ export default function App() {
                 )}
             </Hoverable>
             <MagicModal login={login} account={account} setAccount={setAccount}/>
-        </View> : null
+        </View> 
+        </Modal>
+        : null
     );
 }
 
