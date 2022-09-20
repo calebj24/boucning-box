@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Text, useSx, View, H1, P, Row, A } from 'dripsy'
 import { TextLink } from 'solito/link'
 import { MotiLink } from 'solito/moti';
@@ -8,10 +9,12 @@ import { Button, Platform } from 'react-native'
 import axios from 'axios';
 import RizzList from '../../components/RizzList'
 import { FloatingAction } from "react-native-floating-action";
+import LikeButton from "../../components/likeButton";
 
 export function HomeScreen() {
   const sx = useSx()
   const [text, setText] = useState("")
+  const [isClick, setClick] = useState(false);
 
   useEffect(() => {
 
@@ -81,6 +84,7 @@ export function HomeScreen() {
             Random Rizz
           </Text>
         </MotiPressable>
+        <LikeButton onPress={() => setClick(!isClick)} />
         {/* </View> */}
       </View>
       <View sx={{ height: 32, position: 'absolute',

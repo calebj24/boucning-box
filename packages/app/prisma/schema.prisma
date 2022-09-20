@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("postgresql://akin:b8qeCSBIoMrEi6o5Oohy_A@free-tier.gcp-us-central1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full&options=--cluster%3Dleery-hoatzin-6430")
+}
+
+model User {
+  id          Int      @id(map: "primary")
+  createdAt   DateTime @default(now())
+  email       String   @unique
+  name        String?
+  profile_pic String?
+  posts       Post[]
+  likes       Like[]
+}
+
+model Post {
+  id        Int      @id(map: "primary")
+  createdAt DateTime @default(now())
+  body      String?  @unique
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  likes       Like[]
+}
+
+model Like {
+  id        Int      @id(map: "primary")
+  createdAt DateTime @default(now())
+  userId    Int
+  postId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  post      Post     @relation(fields: [postId], references: [id])
+
+}

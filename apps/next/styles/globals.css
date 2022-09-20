@@ -5,13 +5,19 @@
 
 main {
   height: 100%;
+  background-color: #5634CB;
 }
 
-* {
+.css-view-175oi2r{
+  background-color: none;
+}
+
+.nav-before-sign-in{
   background-color: #5634CB;
 }
 
 .nav {
+  background-color: #5634CB;
   display: flex;
   flex-direction: column;
   margin: 20px;
