@@ -21,6 +21,10 @@ export default function App() {
     const [account, setAccount]: any = useState(null);
     const [width, setWindowWidth] = useState(Dimensions.get('window').width)
 
+    useEffect(()=> {
+        console.log(account);
+    }, [account])
+
     const login = async () => {
         web3.eth
           .getAccounts()
@@ -34,7 +38,7 @@ export default function App() {
 
     return (
         width > 700 ? 
-        <Modal style={{backgroundColor: '#5634CB'}} isVisible={true}>
+        // <Modal style={{backgroundColor: '#5634CB'}} isVisible={true}>
         <View style={{ justifyContent: "center", alignItems: "center" }}>
             <Hoverable>
                 {isHovered => (
@@ -50,7 +54,7 @@ export default function App() {
             <View style={styles.buttonContainer} />
             <Hoverable>
                 {isHovered => (
-                    <Pressable accessible style={[styles.button, { backgroundColor: isHovered ? 'yellow' : 'transparent' }]}>
+                    <Pressable onPress={login} accessible style={[styles.button, { backgroundColor: isHovered ? 'yellow' : 'transparent' }]}>
                         <Row sx={{alignItems: "baseline"}}>
                             <AntDesign name="google" size={24} color={isHovered ? 'black' : 'lightgreen'} />
                             <View style={{paddingRight: 10}} />
@@ -61,7 +65,7 @@ export default function App() {
             </Hoverable>
             <MagicModal login={login} account={account} setAccount={setAccount}/>
         </View> 
-        </Modal>
+        // </Modal>
         : null
     );
 }

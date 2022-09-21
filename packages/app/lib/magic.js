@@ -11,9 +11,7 @@ const createMagic = (key) => {
   return (
     typeof window != 'undefined' &&
     new Magic(key, {
-        network: "rinkeby",
-        locale: "en_US",
-        extensions: [new ConnectExtension()]
+        extensions: [new OAuthExtension()]
     })
   );
 };

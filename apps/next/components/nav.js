@@ -16,15 +16,15 @@ const nav = () => {
       <nav className="nav">
         <NavItems title="RizzUp" />
         <div className="icons">
-          <a href="/">
+          <button onClick={() => Router.push("/")}>
             <NavItems title="HOME" Icon={HomeIcon} />
-          </a>
+          </button>
           <NavItems title="SEARCH" Icon={SearchIcon} />
           <NavItems title="TRENDING" Icon={LightningBoltIcon} />
           <NavItems title="COLLECTIONS" Icon={CollectionIcon} />
-          <a href="/auth/login">
+          <button onClick={() => Router.push("/auth/login")}>
             <NavItems title="ACCOUNT" Icon={UserIcon} />
-          </a>
+          </button>
         </div>
       </nav>
     </div>

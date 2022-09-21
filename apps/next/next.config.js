@@ -21,10 +21,18 @@ const nextConfig = {
   webpack5: true,
   experimental: { 
     nftTracing: true 
-  }
+  },
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
+  },
 }
 
-const transform = withPlugins([withTM, withFonts, withImages, withExpo])
+const transform = withPlugins([withTM, withFonts, withImages, withExpo, {images: {
+  domains: ['res.cloudinary.com'],
+  formats: ['image/avif', 'image/webp'],
+}}])
 
 module.exports = function (name, { defaultConfig }) {
   return transform(name, {

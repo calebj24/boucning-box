@@ -3,8 +3,8 @@ import { OAuthExtension } from '@magic-ext/oauth';
 import { ConnectExtension } from "@magic-ext/connect";
 
 const customNodeOptions = {
-  rpcUrl: 'https://rpc-mainnet.maticvigil.com/',
-  chainId: 137,
+  rpcUrl: 'https://mainnet.infura.io/v3/',
+  chainId: 1,
 }
 
 // Create client-side Magic instance
@@ -21,4 +21,4 @@ const createMagic = (key) => {
 
 
 
-export const magic = createMagic(process.env.NEXT_PUBLIC_MAGIC_PUBLISHABLE_KEY);
+export const magic = createMagic("pk_live_73AAE8A5F81B1CF3");

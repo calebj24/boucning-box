@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { useState } from "react";
 import { Magic } from "magic-sdk";
 import { ConnectExtension } from "@magic-ext/connect";

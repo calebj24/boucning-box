@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import { HomeScreen } from '../../features/home/screen'
 import { UserDetailScreen } from '../../features/user/detail-screen';
+// import Login from '../../features/auth/login';
 import {LogBox} from "react-native";
 import { AnimatedTabBarNavigator } from "react-native-animated-nav-tab-bar";
 import Colors from '../../constants/Colors';
@@ -18,7 +19,8 @@ const Stack = createNativeStackNavigator<{
   'user-detail': {
     id: string
   }
-  dashboard: undefined
+  dashboard: undefined,
+  login: undefined
 }>()
 
 export function NativeNavigation() {
@@ -40,6 +42,7 @@ export function NativeNavigation() {
       />
      <Stack.Screen name="dashboard" component={BottomTabNavigator}
       />
+      {/* <Stack.Screen name="login" component={Login} */}
     </Stack.Navigator>
   )
 }
