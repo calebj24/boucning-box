@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "strictNullChecks": false,
+      "noUncheckedIndexedAccess": true,
+      "paths": {
+        "app/*": ["./packages/app/*"]
+      }
+    },
+    "extends": "expo/tsconfig.base",
+    "exclude": ["node_modules", "next-env.d.ts"],
+    "include": ["**/*"]
+  }
+  

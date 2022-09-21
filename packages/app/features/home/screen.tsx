@@ -5,7 +5,7 @@ import { MotiLink } from 'solito/moti';
 import { MotiPressable } from 'moti/interactions';
 import { MotiView, MotiText } from 'moti'
 import { useEffect, useState, useMemo } from 'react'
-import { Button, Platform } from 'react-native'
+import { Dimensions, Platform } from 'react-native'
 import axios from 'axios';
 import RizzList from '../../components/RizzList'
 import { FloatingAction } from "react-native-floating-action";
@@ -15,6 +15,7 @@ export function HomeScreen() {
   const sx = useSx()
   const [text, setText] = useState("")
   const [isClick, setClick] = useState(false);
+  const [width, setWindowWidth] = useState(Dimensions.get('window').width)
 
   useEffect(() => {
 
@@ -46,7 +47,7 @@ export function HomeScreen() {
 
   return (
     <View
-      sx={{ flex: 1, justifyContent: 'center', alignItems: 'center', p: 16, backgroundColor: "#5634CB" }}
+      sx={{ flex: 1, justifyContent: 'center', alignItems: 'center', p: 16, backgroundColor: "#5634CB", paddingLeft: width > 1000 ? 150 : "none" }}
     >
       <MotiView
         from={{ opacity: 0 }}

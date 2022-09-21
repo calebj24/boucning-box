@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useRef, useState } from 'react';
 import { Text, TouchableOpacity, View, StyleSheet, Pressable, Dimensions } from 'react-native';
 import { Hoverable } from 'react-native-web-hooks';
@@ -37,12 +38,12 @@ export default function App() {
       };
 
     return (
-        width > 700 ? 
+     
         // <Modal style={{backgroundColor: '#5634CB'}} isVisible={true}>
-        <View style={{ justifyContent: "center", alignItems: "center" }}>
+        <View style={{ justifyContent: "center", alignItems: "center", paddingLeft: width > 1000 ? 150 : "none"  }}>
             <Hoverable>
                 {isHovered => (
-                    <Pressable onPress={login} accessible style={[styles.button, { backgroundColor: isHovered ? 'yellow' : 'transparent' }]}>
+                    <Pressable onPress={login} accessible style={[styles.button, { backgroundColor: isHovered ? 'yellow' : 'transparent', width: width > 500 ? "50%": "70%" }]}>
                         <Row sx={{alignItems: "baseline"}}>
                             <AntDesign name="mail" size={24} color={isHovered ? 'black' : 'lightgreen'} />
                             <View style={{paddingRight: 10}} />
@@ -54,7 +55,7 @@ export default function App() {
             <View style={styles.buttonContainer} />
             <Hoverable>
                 {isHovered => (
-                    <Pressable onPress={login} accessible style={[styles.button, { backgroundColor: isHovered ? 'yellow' : 'transparent' }]}>
+                    <Pressable onPress={login} accessible style={[styles.button, { backgroundColor: isHovered ? 'yellow' : 'transparent',  width: width > 500 ? "50%": "70%" }]}>
                         <Row sx={{alignItems: "baseline"}}>
                             <AntDesign name="google" size={24} color={isHovered ? 'black' : 'lightgreen'} />
                             <View style={{paddingRight: 10}} />
@@ -66,7 +67,7 @@ export default function App() {
             <MagicModal login={login} account={account} setAccount={setAccount}/>
         </View> 
         // </Modal>
-        : null
+   
     );
 }
 
