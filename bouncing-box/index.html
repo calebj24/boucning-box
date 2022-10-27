@@ -14,7 +14,7 @@
         display: block;
         position: absolute;
         top: 100px;
-        left: 100px; /* <--- Change me! */
+        left: 0px; /* <--- Change me! */
       }
       .board {
         height: 100vh;
@@ -57,6 +57,7 @@
 
         // TODO 2 - Variable declarations
         var positionX = 0;
+        boardwidth = 400;
         var SpeedX = 10;
         var points = 0;
         
@@ -68,13 +69,11 @@
         function update() {
         
           /* Your Code to Increase positionX by 10 HERE*/
-          positionX += speedX;
-                $box.css("left", positionX);
+            if (positionX < 0) {
+              speed = Math.abs(speed);
+            }
                
-                if (positionX > boardWidth) {
-                    speedX = -speedX;
-                }
-                if (positionX < 0) {
+            if (positionX > boardwidth) {
                     speedX = -speedX;
                 }
         /* 
