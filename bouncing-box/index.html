@@ -6,7 +6,7 @@
     <script src="jquery.min.js"></script>
     <style>
       .box {
-        width: 100px;
+        width: 70px;
         height: 70px;
         background-color: teal;
         font-size: 300%;
@@ -14,7 +14,7 @@
         display: block;
         position: absolute;
         top: 100px;
-        left: 200px; /* <--- Change me! */
+        left: 0px; /* <--- Change me! */
       }
       .board {
         height: 100vh;
@@ -52,7 +52,7 @@
         //////////////////////////////////////////////////////////////////
         // TODO 2 - Variable declarations
         var positionX = 0
-        boardWidth = 400
+        boardWidth = 500
         var speed = 10
         var clicks = 1
         /*
@@ -63,7 +63,7 @@
         function update() {
           /* Your Code to Increase positionX by 10 HERE*/
           //IF positionX is greater than boardWidth: Change Direction of the Box
-          //if positionX is less than 0, chnge the speed back to 10
+          //if positionX is less than 0, change the speed back to 10
           if (positionX < 0) {
             speed = Math.abs(speed)
           }
