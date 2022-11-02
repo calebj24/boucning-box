@@ -8,7 +8,7 @@
       .box {
         width: 70px;
         height: 70px;
-        background-color: teal;
+        background-color: blue;
         font-size: 300%;
         text-align: center;
         display: block;
@@ -46,20 +46,24 @@
         box.on('click', handleBoxClick)
 
         // moves the Box to a new position on the screen along the X-Axis
-        
+        function moveBoxTo(newPositionX) {
+          box.css("left",newPositionX);
+        }
 
         // changes the text displayed on the Box
-       
+       function changeBoxText(newText) {
+         box.text(newText)
+       }
 
         //////////////////////////////////////////////////////////////////
         /////////////////// YOUR CODE BELOW HERE /////////////////////////
         //////////////////////////////////////////////////////////////////
 
         // TODO 2 - Variable declarations
-        var positionX = 0;
-        boardwidth = 400;
-        var SpeedX = 10;
-        var points = 0;
+        var positionX = 0
+        var boardWidth = 500
+        var speed = 10
+        var clicks = 1
         
         /* 
 			This Function will be called 20 times/second. Each time it is called,
@@ -67,26 +71,32 @@
 			turn it around! 
 			*/
         function update() {
-        
+        moveBoxTo(positionX);
           /* Your Code to Increase positionX by 10 HERE*/
             if (positionX < 0) {
-              speed = Math.abs(speed);
+              speed = Math.abs(speed)
             }
                
             if (positionX > boardwidth) {
-                    speedX = -speedX;
+                    speed = -speed
                 }
+            else if (positionX < boardWidth){
+              positionX += speed
+            
+              console.log(positionX)
+
+              moveBoxTo(positionX)
+            }
         /* 
 			This Function will be called each time the box is clicked. Each time it is called,
 			it should increase the points total, increase the speed, and move the box to
 			the left side of the screen.
 			*/
         function handleBoxClick() {
-          debugger;
-                points += 1;
-                $box.text(points);
-                speedX += 3;
-                positionX = 0;
+          positionX = 0
+          clicks++
+          changeBoxText(clicks)
+          speed += 3
         }
       })()
     </script>
